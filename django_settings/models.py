@@ -57,7 +57,7 @@ class Setting(models.Model):
 
     objects = SettingManager()
 
-    setting_type = models.ForeignKey(ContentType, on_delete='CASCADE')
+    setting_type = models.ForeignKey(ContentType, on_delete=models.PROTECT)
     setting_id = models.PositiveIntegerField()
     setting_object = fields.GenericForeignKey('setting_type', 'setting_id')
 
